@@ -1,0 +1,140 @@
+{
+  "project_info": {
+    "name": "PocketBill",
+    "type": "mobile_web_app (Expo React Native)",
+    "archetype": "Soft Utility (Modified Archetype 4 for mobile)",
+    "theme": "System-based (Light + Dark)"
+  },
+  "typography": {
+    "primary_font": "Manrope",
+    "fallback_font": "sans-serif",
+    "scale": {
+      "h1": "text-4xl tracking-tight leading-tight",
+      "h2": "text-2xl tracking-tight",
+      "h3": "text-xl",
+      "body": "text-base leading-relaxed",
+      "small": "text-sm",
+      "tiny": "text-xs tracking-wide uppercase"
+    },
+    "guidelines": "Avoid Inter/Roboto. Use Manrope for clear numerical displays. Keep tracking tight on headings. All font loading should be handled via Expo (@expo-google-fonts/manrope)."
+  },
+  "colors": {
+    "light": {
+      "background": "#FAFAFA",
+      "surface": "#FFFFFF",
+      "text_primary": "#09090B",
+      "text_secondary": "#71717A",
+      "border": "#E4E4E7",
+      "accent": "#4338CA",
+      "accent_active": "#3730A3",
+      "semantic": {
+        "overdue": "#E11D48",
+        "overdue_bg": "#FFE4E6",
+        "paid": "#10B981",
+        "paid_bg": "#D1FAE5",
+        "upcoming": "#F59E0B",
+        "upcoming_bg": "#FEF3C7"
+      }
+    },
+    "dark": {
+      "background": "#09090B",
+      "surface": "#18181B",
+      "text_primary": "#FAFAFA",
+      "text_secondary": "#A1A1AA",
+      "border": "#27272A",
+      "accent": "#6366F1",
+      "accent_active": "#4F46E5",
+      "semantic": {
+        "overdue": "#F43F5E",
+        "overdue_bg": "#4C0519",
+        "paid": "#34D399",
+        "paid_bg": "#064E3B",
+        "upcoming": "#FBBF24",
+        "upcoming_bg": "#78350F"
+      }
+    }
+  },
+  "spacing": {
+    "system": "8pt grid",
+    "tokens": {
+      "p-2": "8px",
+      "p-4": "16px",
+      "p-6": "24px",
+      "p-8": "32px",
+      "touch_target_min": "44px"
+    }
+  },
+  "components": {
+    "bill_card": {
+      "structure": "Flat, 1px border. No drop shadow. Rounded-2xl (16px radius). Flex row for left/right split (Name/Date vs Amount). Padding: 16px.",
+      "states": {
+        "default": "border-border bg-surface",
+        "overdue": "border-red-500 bg-red-50/10 dark:bg-red-950/20",
+        "paid": "opacity-60 grayscale-[50%]"
+      }
+    },
+    "bottom_tab_bar": {
+      "style": "Fixed bottom, bg-surface, border-t border-border. height: 64px minimum.",
+      "icons": "Use @expo/vector-icons (Ionicons). Active state: accent color. Inactive: text_secondary."
+    },
+    "fab": {
+      "style": "Absolute bottom-6 right-6. 56x56px. Circle (rounded-full). bg-accent. icon: Plus (white). Elevation/shadow-sm. Must have data-testid='fab-add-bill'."
+    },
+    "buttons": {
+      "primary": "bg-accent text-white rounded-xl h-12 flex items-center justify-center font-bold text-base min-h-[44px]",
+      "secondary": "bg-transparent border border-border text-text_primary rounded-xl h-12 flex items-center justify-center font-semibold text-base min-h-[44px]"
+    },
+    "inputs": {
+      "style": "h-14 rounded-xl border border-border bg-surface px-4 text-base focus:border-accent min-h-[44px]"
+    },
+    "segmented_filters": {
+      "style": "Flex row, bg-border p-1 rounded-xl min-h-[44px]",
+      "active": "bg-surface shadow-sm rounded-lg text-text_primary font-semibold py-2 px-4",
+      "inactive": "text-text_secondary py-2 px-4"
+    }
+  },
+  "screens": {
+    "Home": {
+      "layout": "Header: 'Total Due' massive (text-4xl, tight tracking). Scrollable list of 'Upcoming Bills'. Overdue items explicitly highlighted at the top. FAB to quick add.",
+      "testid": "home-screen"
+    },
+    "Bills": {
+      "layout": "Top sticky segmented control (All | Paid | Unpaid). Scrollable FlatList. Sort button top right (Date arrow).",
+      "testid": "bills-screen"
+    },
+    "AddEditBill": {
+      "layout": "Form layout. Name (input), Amount (large numeric input), Due Date (system picker), Recurring toggle (Switch/Segmented - None, Weekly, Monthly), Notes (multiline). Save button sticky at bottom.",
+      "testid": "add-edit-bill-screen"
+    },
+    "Stats": {
+      "layout": "Two massive cards at top: Total Paid, Total Spent This Month. Below: Simple list grouping by category/month or simple progress bar of paid vs unpaid.",
+      "testid": "stats-screen"
+    },
+    "Settings": {
+      "layout": "List layout. Theme Toggle (Light/Dark/System). Currency Picker ($, ₹, €). Auth Section: Google/Facebook buttons (UI only). About row.",
+      "testid": "settings-screen"
+    }
+  },
+  "media": {
+    "logos": {
+      "google_placeholder": "https://images.unsplash.com/photo-1706879350832-db2615866e54?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxnb29nbGUlMjBsb2dvJTIwd2hpdGUlMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc3NjQ0MDczOHww&ixlib=rb-4.1.0&q=85",
+      "facebook_placeholder": "https://images.unsplash.com/photo-1662070479020-73f77887c87c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwxfHxmYWNlYm9vayUyMGxvZ28lMjB3aGl0ZSUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzc2NDQwNzM4fDA&ixlib=rb-4.1.0&q=85"
+    },
+    "empty_states": {
+      "instructions": "Do not use placeholder image URLs. Use @expo/vector-icons like 'Receipt' or 'Wallet' at size 64px, color text_secondary."
+    }
+  },
+  "testing": {
+    "instructions": "All interactive elements MUST have a data-testid attribute. E.g., data-testid='add-bill-button'. Follow role-based naming."
+  },
+  "instructions_to_main_agent": [
+    "Use Tailwind via NativeWind or standard StyleSheet mapping exactly to the colors and 8pt scale provided in this JSON.",
+    "Implement light and dark mode respecting system preference by default.",
+    "Do NOT use heavy shadows, keep UI flat (1px borders).",
+    "Minimum touch targets must be 44px height for all inputs and buttons.",
+    "Use Manrope font loaded via Expo Google Fonts.",
+    "Use @expo/vector-icons for all icons (Ionicons preferred for Android feel).",
+    "Include seed logic to generate 3-4 bills on first launch so the UI is not empty.",
+    "Implement local notifications logic (even if mocked initially) for due bills."
+  ]
+}
